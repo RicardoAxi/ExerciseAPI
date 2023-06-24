@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2023.06.23 a las 11:44:03 PM CDT 
+
+  -->
+  <bindings xmlns:tns="com.axity.dnd" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="dnd.axity.com"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:PlayerType">
+      <class ref="dnd.axity.com.PlayerType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:CreatePlayerRequest">
+      <class ref="dnd.axity.com.CreatePlayerRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:CreatePlayerResponse">
+      <class ref="dnd.axity.com.CreatePlayerResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ReadPlayerRequest">
+      <class ref="dnd.axity.com.ReadPlayerRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ReadPlayerResponse">
+      <class ref="dnd.axity.com.ReadPlayerResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:UpdatePlayerRequest">
+      <class ref="dnd.axity.com.UpdatePlayerRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:DeletePlayerRequest">
+      <class ref="dnd.axity.com.DeletePlayerRequest"/>
+    </bindings>
+  </bindings>
+</bindings>

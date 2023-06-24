@@ -1,0 +1,77 @@
+<xsd:schema 
+  xmlns:tns="com.axity.dnd" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  targetNamespace="com.axity.dnd">
+  <xsd:element name="Player" type="tns:PlayerType" />
+  <xsd:element name="PlayerId" type="xsd:int" />
+
+  <xsd:complexType name="PlayerType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:integer" />
+      <xsd:element name="name" type="xsd:string" />
+      <xsd:element name="race" type="xsd:string" />
+      <xsd:element name="playerClass" type="xsd:string" />
+      <xsd:element name="level" type="xsd:int" />
+      <xsd:element name="hitPoints" type="xsd:int" />
+      <xsd:element name="strength" type="xsd:int" />
+      <xsd:element name="dexterity" type="xsd:int" />
+      <xsd:element name="constitution" type="xsd:int" />
+      <xsd:element name="intelligence" type="xsd:int" />
+      <xsd:element name="wisdom" type="xsd:int" />
+      <xsd:element name="charisma" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="CreatePlayerRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="player" type="tns:PlayerType" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="CreatePlayerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="playerId" type="xsd:int" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="ReadPlayerRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="playerId" type="xsd:int" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="ReadPlayerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="player" type="tns:PlayerType" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="UpdatePlayerRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="playerId" type="xsd:int" />
+        <xsd:element name="player" type="tns:PlayerType" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="UpdatePlayerResponse" type="xsd:boolean" />
+
+  <xsd:element name="DeletePlayerRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="playerId" type="xsd:int" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="DeletePlayerResponse" type="xsd:boolean" />
+</xsd:schema>

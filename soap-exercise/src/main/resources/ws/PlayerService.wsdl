@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="com.axity.dnd" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlayerService"
+  targetNamespace="com.axity.dnd">
+
+  <!-- Types -->
+  <types>
+    <xsd:schema targetNamespace="com.axity.dnd">
+      <xsd:element name="Player" type="tns:PlayerType" />
+      <xsd:element name="PlayerId" type="xsd:int" />
+
+      <xsd:complexType name="PlayerType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:integer" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="race" type="xsd:string" />
+          <xsd:element name="playerClass" type="xsd:string" />
+          <xsd:element name="level" type="xsd:int" />
+          <xsd:element name="hitPoints" type="xsd:int" />
+          <xsd:element name="strength" type="xsd:int" />
+          <xsd:element name="dexterity" type="xsd:int" />
+          <xsd:element name="constitution" type="xsd:int" />
+          <xsd:element name="intelligence" type="xsd:int" />
+          <xsd:element name="wisdom" type="xsd:int" />
+          <xsd:element name="charisma" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+
+      <xsd:element name="CreatePlayerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="player" type="tns:PlayerType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="CreatePlayerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="playerId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="ReadPlayerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="playerId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="ReadPlayerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="player" type="tns:PlayerType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="UpdatePlayerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="playerId" type="xsd:int" />
+            <xsd:element name="player" type="tns:PlayerType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="UpdatePlayerResponse" type="xsd:boolean" />
+
+      <xsd:element name="DeletePlayerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="playerId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="DeletePlayerResponse" type="xsd:boolean" />
+    </xsd:schema>
+  </types>
+
+  <!-- Messages -->
+  <message name="CreatePlayerRequestMessage">
+    <part name="request" element="tns:CreatePlayerRequest" />
+  </message>
+
+  <message name="CreatePlayerResponseMessage">
+    <part name="response" element="tns:CreatePlayerResponse" />
+  </message>
+
+  <message name="ReadPlayerRequestMessage">
+    <part name="request" element="tns:ReadPlayerRequest" />
+  </message>
+
+  <message name="ReadPlayerResponseMessage">
+    <part name="response" element="tns:ReadPlayerResponse" />
+  </message>
+
+  <message name="UpdatePlayerRequestMessage">
+    <part name="request" element="tns:UpdatePlayerRequest" />
+  </message>
+
+  <message name="UpdatePlayerResponseMessage">
+    <part name="response" element="tns:UpdatePlayerResponse" />
+  </message>
+
+  <message name="DeletePlayerRequestMessage">
+    <part name="request" element="tns:DeletePlayerRequest" />
+  </message>
+
+  <message name="DeletePlayerResponseMessage">
+    <part name="response" element="tns:DeletePlayerResponse" />
+  </message>
+
+  <!-- Port Type -->
+  <portType name="PlayerServicePortType">
+    <operation name="createPlayer">
+      <input message="tns:CreatePlayerRequestMessage" />
+      <output message="tns:CreatePlayerResponseMessage" />
+    </operation>
+    <operation name="readPlayer">
+      <input message="tns:ReadPlayerRequestMessage" />
+      <output message="tns:ReadPlayerResponseMessage" />
+    </operation>
+    <operation name="updatePlayer">
+      <input message="tns:UpdatePlayerRequestMessage" />
+      <output message="tns:UpdatePlayerResponseMessage" />
+    </operation>
+    <operation name="deletePlayer">
+      <input message="tns:DeletePlayerRequestMessage" />
+      <output message="tns:DeletePlayerResponseMessage" />
+    </operation>
+  </portType>
+
+  <!-- Binding -->
+  <binding name="PlayerServiceBinding" type="tns:PlayerServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="createPlayer">
+      <soap:operation soapAction="com.axity.dnd#createPlayer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="readPlayer">
+      <soap:operation soapAction="com.axity.dnd#readPlayer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updatePlayer">
+      <soap:operation soapAction="com.axity.dnd#updatePlayer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="deletePlayer">
+      <soap:operation soapAction="com.axity.dnd#deletePlayer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+
+  <!-- Service -->
+  <service name="PlayerService">
+    <port name="PlayerServicePort" binding="tns:PlayerServiceBinding">
+      <soap:address location="http://localhost:8080/PlayerService" />
+    </port>
+  </service>
+
+</definitions>
